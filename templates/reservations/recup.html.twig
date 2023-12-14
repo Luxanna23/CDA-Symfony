@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ChambreController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+
+<form action="{{ path('app_seecustomerreservation')}}">
+    <h1>Saisissez un client : </h1>
+    <select name="recup" id="pet-select">
+  <option value="">--Please choose an option--</option>
+  <option value=0>client 1</option>
+  <option value=1>client 2</option>
+  <option value=2>client 3</option>
+  <option value=2>client 4</option>
+</select>
+    <input type="submit" value="envoyez">
+</form>
+</div>
+{% endblock %}
