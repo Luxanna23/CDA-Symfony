@@ -67,7 +67,7 @@ class Reservation
         return $this;
     }
 
-    public function isIdChambreFk(): ?int
+    public function getIdChambreFk(): ?int
     {
         return $this->id_chambre_fk;
     }
