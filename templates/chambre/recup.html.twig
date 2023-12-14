@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ChambreController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+
+<form action="{{ path('app_chambreform')}}">
+    <h1>Saisissez une catégorie de chambre : </h1>
+    <select name="recup" id="pet-select">
+  <option value="">--Please choose an option--</option>
+  <option value="categorie incroyable">categorie incroyable</option>
+  <option value="categorie 2">categorie 2</option>
+  <option value="categorique">categorique</option>
+  <option value="categorible">categorible</option>
+</select>
+    <input type="submit" value="envoyez">
+</form>
+</div>
+{% endblock %}
