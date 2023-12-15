@@ -16,7 +16,7 @@ class MainMenuController extends AbstractController
 {
     
 
-    #[Route('/main', name: 'app_main')]
+    #[Route('/', name: 'app_main')]
     public function index(): Response
     {
         
