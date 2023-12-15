@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+
+use App\Form\ChambreType;
 use App\Entity\Chambre;
 use App\Form\ClientRoomCategoryType;
 use App\Repository\ChambreRepository;

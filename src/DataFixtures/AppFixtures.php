@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+
 use App\Entity\Chambre;
 use App\Entity\Reservation;
 use Doctrine\Bundle\FixturesBundle\Fixture;
