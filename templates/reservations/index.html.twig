@@ -9,13 +9,13 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Chambres :</h1>
+    <h1>Réservations pour le client {{clientnum}} :</h1>
 
     
   
     <ul>
-        {% for chambre in chambres %}
-           <br> <li>chambre : {{ chambre.num }}   <p></p><p>          {{ chambre.idhotelfk }} </p>              <p>  {{ chambre.categorie }}            </p>              <p>             {% if (chambre.etat==1) %} disponible{% else %}occupée{% endif %} </p></li>
+        {% for reservation in reservations %}
+           <br> <li>réservation num : {{ reservation.reservation }}   <p></p></li>
         {% endfor %}
     </ul>
 </div>

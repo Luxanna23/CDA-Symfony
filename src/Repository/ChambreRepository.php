@@ -21,6 +21,14 @@ class ChambreRepository extends ServiceEntityRepository
         parent::__construct($registry, Chambre::class);
     }
 
+    public function findByCategory(String $category)
+    {
+        $chambres=$this->findAll();
+
+        return $chambres;
+
+    }
+
 //    /**
 //     * @return Chambre[] Returns an array of Chambre objects
 //     */
