@@ -22,12 +22,12 @@ class AppFixtures extends Fixture
             $manager->persist($chambre);
         }
         for ($i = 0; $i < 100; $i++) {
-            $chambre = new Reservation();
-            $chambre->setReservation($i);
-            $chambre->setIdClientFk((($i+3)*7)%4);
-            $chambre->setIdChambreFk((($i+147)*129)%100);
-            $chambre->setEtat($i%2);
-            $manager->persist($chambre);
+            $res = new Reservation();
+            $res->setReservation($i);
+            $res->setIdClientFk((($i+3)*7)%4);
+            $res->setIdChambreFk((($i+147)*129)%100);
+            $res->setEtat($i%2);
+            $manager->persist($res);
         }
 
 
