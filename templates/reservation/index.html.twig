@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reservation{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<h1>Total des reservation : {{ reservations|length }}</h1>
+    <div>
+        {% for res in reservations %}
+            <div>
+                <span>{{res.reservation}}</span>
+                <a href="{{ path('app_reservation_edit' , { id: res.id}) }}">Editer</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
