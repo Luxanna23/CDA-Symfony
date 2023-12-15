@@ -13,6 +13,42 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ReservationController extends AbstractController
 {
+
+    // #[Route('/reservation/create2', name: 'app_reservation_create2')]
+    // public function addReservation2(ClientRepository $cr, Request $request, EntityManagerInterface $em,): Response
+    // {   
+    //     $res = new Reservation();
+    //     $form = $this->createForm(ReservationType::class, $res);
+    //     $form->handleRequest($request);
+
+    //     return $this->render('reservation/create.html.twig', [
+    //         'reservation' => "nom",
+    //         'form' => $form->createView(),
+    //     ]);
+    // }
+
+    #[Route('/reservation/create', name: 'app_reservation2')]
+    public function addReservation(Request $request, EntityManagerInterface $em): Response
+    {
+        $res = new Reservation();
+        $form = $this->createForm(ReservationType::class, $res); 
+    
+        $form->handleRequest($request);
+    
+        if ($form->isSubmitted() && $form->isValid()) {
+            $res->setIdClientFk(1);
+            $res->setIdChambreFk(1);
+            $em->persist($res);
+            $em->flush();
+            return $this->redirectToRoute('app_reservation');
+        }
+    
+        return $this->render('reservation/create.html.twig', [
+            'form' => $form->createView(), 
+        ]);
+    }
+    
+
     #[Route('/reservation', name: 'app_reservation')]
     public function index(Request $request, ReservationRepository $reservationRepository): Response
     {
