@@ -20,22 +20,25 @@ class RefuseReservationController extends AbstractController
         $id = $request->query->get('id');
         if ($action == 'ok') {
             $newRes = new Reservation();
-            $findRes = $resvations->find($id);
-            $newRes->setReservation($findRes->getReservation());
+            $newRes->setReservation($demandeRes->find($id)->getReservation());
+            $newRes->setEtat(1);
+            $newRes->setIdClientFk(1);
+            $newRes->setIdChambreFk(1);
             $em->persist($newRes);
             $em->flush();
         }
-        else if ($action == 'notOk') {
-            $delete = $demandeRes->find($id);
-            if ($delete){
-                $em->remove($delete);
-                $em->flush();
+        else if ($action == 'notok') {
+            $ref = $demandeRes->find($id);
+            $ref->setEtat(0);
+            $em->persist($ref);
+            $em->flush();
+        }
+                return $this->render('refuse_reservation/index.html.twig', [
+                    'reservations' => $demandeRes->findBy(['Etat'=> null]),
+                    'accepted_reservations' => $resvations->findAll(),
+                    'refused_reservations' => $demandeRes->findBy(['Etat' => 0]),
+                ]);
             }
         }
-        return $this->render('refuse_reservation/index.html.twig', [
-            'reservations' => $demandeRes->findAll(),
-            'accepted_reservations' => $resvations->findAll(),
-            'refused_reservations' => $demandeRes->findAll(),
-        ]);
-    }
-}
+        
+        
