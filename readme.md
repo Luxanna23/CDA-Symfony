@@ -11,3 +11,4 @@ Requires :
 5) Symfony
 
 Install all the following requierements so you can run our application.
+Don't forget to start the server with serve:start.
